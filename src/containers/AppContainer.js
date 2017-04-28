@@ -2,10 +2,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { updatePlaces } from '../actions';
-import Search from '../components/Search/Search';
+import App from '../components/App/App';
+
+function mapStateToProps(state) {
+  return { places: state.places }
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ updatePlaces }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

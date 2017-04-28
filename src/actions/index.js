@@ -1,12 +1,5 @@
-import {
-  ADD_PLACE,
-  REMOVE_PLACE,
-} from '../constants';
-
-import {
-  API_URL, API_KEY
-} from '../api';
-
+import { ADD_PLACE, REMOVE_PLACE } from '../constants';
+import { API_URL, API_KEY } from '../api';
 import { updateStorage } from '../utils/storage';
 
 export function getPlace(lat, lon) {
@@ -26,13 +19,24 @@ export function getPlace(lat, lon) {
 export function updatePlaces(lat, lon) {
   return (dispatch, getState) => {
     return dispatch(getPlace(lat, lon))
-      .then(() => updateStorage(getState().places));
+      .then(() => updateStorage('places', getState().places));
+  }
+}
+
+export function removePlaceById(id) {
+  return dispatch => {
+    const p = Promise.resolve();
+    return p.then(() => dispatch({
+        type: REMOVE_PLACE,
+        payload: { id },
+      }))
+      .catch(error => console.warn(error));
   }
 }
 
 export function removePlace(id) {
-  return {
-    type: REMOVE_PLACE,
-    payload: { id },
-  };
+  return (dispatch, getState) => {
+    return dispatch(removePlaceById(id))
+      .then(() => updateStorage('places', getState().places));
+  }
 }

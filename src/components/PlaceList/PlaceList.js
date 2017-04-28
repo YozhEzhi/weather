@@ -13,7 +13,7 @@ export default function PlaceList(props) {
       />
     )
     :
-    <div>Enter and select place in autocomplete.</div>;
+    <div>No places yet.</div>;
 
   return (
     <div>

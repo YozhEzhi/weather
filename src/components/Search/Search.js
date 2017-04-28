@@ -18,23 +18,9 @@ export default class SearchBar extends React.Component {
     });
   }
 
-  componentDidMount() {
-    const success = (position) => {
-      const { latitude, longitude } = position.coords;
-
-      this.props.updatePlaces(latitude, longitude);
-      this.initAutocomplete();
-    }
-
-    function error(err) {
-      this.setState({ err: err.message });
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error);
-  }
-
   initAutocomplete() {
-    const places = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+    const searchField = document.getElementById('autocomplete');
+    const places = new google.maps.places.Autocomplete(searchField);
 
     google.maps.event.addListener(places, 'place_changed', (event) => {
       let place = places.getPlace();
@@ -44,6 +30,10 @@ export default class SearchBar extends React.Component {
       this.props.updatePlaces(lat, lon);
       this.dropState();
     });
+  }
+
+  componentDidMount() {
+    this.initAutocomplete();
   }
 
   handlePlaceChange(event) {

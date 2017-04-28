@@ -3,9 +3,7 @@ import {
   REMOVE_PLACE,
 } from '../constants';
 
-const defaultCities = JSON.parse(localStorage.getItem('cities')) || [];
-
-export default function reducer(state = defaultCities, action) {
+export default function reducer(state = [], action) {
   switch(action.type) {
     case ADD_PLACE:
       return [
@@ -15,9 +13,7 @@ export default function reducer(state = defaultCities, action) {
 
     case REMOVE_PLACE:
       const filteredPlaces = state.filter(item => item.id !== action.payload.id);
-      return [
-        ...filteredPlaces,
-      ];
+      return [...filteredPlaces];
 
     default:
       return state;
