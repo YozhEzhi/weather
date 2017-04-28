@@ -1,4 +1,5 @@
 import React from 'react';
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import Place from '../Place/Place.js';
 
@@ -13,11 +14,19 @@ export default function PlaceList(props) {
       />
     )
     :
-    <div>No places yet.</div>;
+    <h3 className="place-empty">No places to show.</h3>;
 
   return (
     <div>
-      {places}
+      <CSSTransitionGroup
+        transitionName="fade"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={300}
+      >
+        {places}
+      </CSSTransitionGroup>
     </div>
   );
 }

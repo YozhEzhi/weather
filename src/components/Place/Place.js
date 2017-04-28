@@ -1,5 +1,6 @@
-
 import React from 'react';
+
+import './Place.css';
 
 export default function Place(props) {
   const { place } = props;
@@ -12,14 +13,14 @@ export default function Place(props) {
   const removePlace = props.removePlace;
 
   return (
-    <div>
+    <div className="place">
       <span>{name}</span>{' '}
       <span>{humidity}</span>{' '}
       <span>{temp}</span>{' '}
       <span>{description}</span>{' '}
       <span>{country}</span>{' '}
       <span>{icon}</span>{' '}
-      <span onClick={removePlace}>X</span>{' '}
+      <span className="place-remove" onClick={removePlace} />
     </div>
   );
 }

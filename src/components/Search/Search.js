@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Search.css';
+
 const google = window.google;
 
 export default class SearchBar extends React.Component {
@@ -44,7 +46,7 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <input
-          className="form-control"
+          className="search-field"
           id="autocomplete"
           onChange={this.handlePlaceChange}
           placeholder="Enter city name"

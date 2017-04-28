@@ -4,7 +4,7 @@ import { updateStorage } from '../utils/storage';
 
 export function getPlace(lat, lon) {
   return dispatch => {
-    return fetch(`${API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+    return fetch(`${API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
       .then(response => response.json())
       .then((place) => {
         dispatch({

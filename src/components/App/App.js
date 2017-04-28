@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 import logo from '../../logo.svg';
+import Footer from '../../components/Footer/Footer';
 import Search from '../../components/Search/Search';
 import PlacesContainer from '../../containers/PlacesContainer';
 
@@ -25,14 +26,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="app">
+        <div className="app-header">
+          <div className="app-header-inner">
+            <div className="app-logo-wrapper">
+              <img src={logo} className="app-logo" alt="logo" />
+            </div>
+            <h2 className="app-title">Welcome to React</h2>
+          </div>
         </div>
 
-        <Search updatePlaces={this.updatePlaces} />
-        <PlacesContainer />
+        <div className="app-content">
+          <Search updatePlaces={this.updatePlaces} />
+          <PlacesContainer />
+        </div>
+
+        <Footer />
       </div>
     );
   }
