@@ -1,12 +1,17 @@
 .footer {
+  text-align: center;
+  padding: 20px;
   width: 100%;
 }
 
-.footer-divider {
-  background: url(../../assets/images/divider-line.png) center bottom no-repeat;
-  clear: both;
-  display: block;
-  margin-bottom: 35px;
-  padding-top: 38px;
-  width: 100%;
+.footer-author {
+  color: #9da4a6;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-shadow: 0 2px 1px #000;
+}
+
+.footer-author:hover {
+  text-decoration: underline;
 }

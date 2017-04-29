@@ -5,8 +5,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer className="footer grey-plate">
-      <div className="footer-divider" />
-      <div className="footer-divider" />
+      <a className="footer-author" href="https://github.com/YozhEzhi" target="_blank">YozhEzhi</a>
     </footer>
   );
 }

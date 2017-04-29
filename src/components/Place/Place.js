@@ -24,7 +24,7 @@ export default function Place(props) {
       <span className="place-inner-item">
         <i className={`place-icon ${icon}`}></i>
       </span>
-      <span className="place-inner-item">{temp} &deg;C</span>
+      <span className="place-inner-item">{Math.ceil(temp)} &deg;C</span>
       <span className="place-inner-item">Humidity: <br /> {humidity} %</span>
       <span className="place-inner-item">Wind: <br /> {wind} m/s</span>
       <span className="place-inner-item" title="Remove place">

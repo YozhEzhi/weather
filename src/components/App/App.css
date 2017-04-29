@@ -13,6 +13,7 @@
   color: #fff;
   flex: 1;
   margin: 0 auto 50px;
+  min-width: 700px;
   max-width: 960px;
   text-align: center;
 }
@@ -39,11 +40,11 @@
 }
 
 .app-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: spin infinite 20s linear;
   height: 54px;
 }
 
-@keyframes App-logo-spin {
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
