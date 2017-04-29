@@ -1,4 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import "./assets/css/autocomplete.css";
+@import "./assets/css/weather-icons.min.css";
 
 * {
   box-sizing: border-box;

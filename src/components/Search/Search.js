@@ -1,8 +1,7 @@
 import React from 'react';
 
 import './Search.css';
-
-const google = window.google;
+import initAutocomplete from '../../utils/autocomplete';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
@@ -20,22 +19,8 @@ export default class SearchBar extends React.Component {
     });
   }
 
-  initAutocomplete() {
-    const searchField = document.getElementById('autocomplete');
-    const places = new google.maps.places.Autocomplete(searchField);
-
-    google.maps.event.addListener(places, 'place_changed', (event) => {
-      let place = places.getPlace();
-      let lat = place.geometry.location.lat();
-      let lon = place.geometry.location.lng();
-
-      this.props.updatePlaces(lat, lon);
-      this.dropState();
-    });
-  }
-
   componentDidMount() {
-    this.initAutocomplete();
+    initAutocomplete('autocomplete', this.props.updatePlaces, this.dropState.bind(this));
   }
 
   handlePlaceChange(event) {
@@ -49,7 +34,7 @@ export default class SearchBar extends React.Component {
           className="search-field"
           id="autocomplete"
           onChange={this.handlePlaceChange}
-          placeholder="Enter city name"
+          placeholder="Enter place name"
           value={this.state.term}
         />
       </div>

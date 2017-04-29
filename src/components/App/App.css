@@ -12,6 +12,9 @@
 .app-content {
   color: #fff;
   flex: 1;
+  margin: 0 auto 50px;
+  max-width: 960px;
+  text-align: center;
 }
 
 .app-header {

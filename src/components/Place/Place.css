@@ -1,56 +1,77 @@
 .place {
+  align-items: center;
   background: #3bbec0;
   color: #fff;
+  display: flex;
   margin: 0 0 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.place-inner-item {
+  flex: 1;
   padding: 20px;
   position: relative;
 }
 
+.place-inner-item:not(:last-child):after {
+  content: '';
+  background: rgba(242,251,251,0.3);
+  height: 300%;
+  position: absolute;
+  right: 0;
+  top: -100%;
+  width: 1px;
+}
+
+.place-inner-item:last-child {
+  border-color: transparent;
+  flex: inherit;
+}
+
+.place-name {
+  flex: 2;
+}
+
 .place-remove {
-  display: block;
-  cursor: pointer;
-  width: 29px;
-  height: 29px;
-  margin: 0;
   border: 1px solid #fff;
   border-radius: 50%;
-  position: absolute;
-  transform: translateY(-50%) rotate(45deg);
-  right: 15px;
-  top: 50%;
+  cursor: pointer;
+  display: block;
+  height: 31px;
+  margin: 0;
+  position: relative;
+  width: 31px;
 }
 
 .place-remove:after,
 .place-remove:before {
+  background: #fff;
   content: '';
   display: block;
-  position: absolute;
-  top: 13px;
-  left: 6px;
-  width: 15px;
   height: 1px;
-  background: #fff;
+  left: 7px;
+  position: absolute;
+  top: 14px;
+  transform: rotate(45deg);
+  width: 15px;
 }
 
 .place-remove:after {
-  top: 6px;
-  left: 13px;
+  top: 7px;
+  left: 14px;
   width: 1px;
   height: 15px;
 }
 
-.place-remove:hover {
-  border-color: #ec8d73;
-}
-
-.place-remove:hover:after,
-.place-remove:hover:before {
-  background: #ec8d73;
+.place-icon {
+  font-size: 30px;
 }
 
 .place-empty {
   font-style: italic;
   text-align: center;
+  text-shadow: 0 1px 1px #000;
 }
 
 .fade-enter,

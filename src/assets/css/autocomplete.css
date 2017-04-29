@@ -1,0 +1,43 @@
+.pac-container {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "Open Sans", Arial, sans-serif;
+  overflow: visible;
+  transform: translateY(5px);
+}
+
+.pac-container:after {
+  display: none;
+}
+
+.pac-container:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -6px;
+  left: 26px;
+  border-left: 10px solid rgba(0, 0, 0, 0);
+  border-right: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid #fff;
+}
+
+.pac-item {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.pac-matched {
+  font-weight: 600;
+}
+
+.pac-icon-marker {
+  display: none;
+}
+
+.pac-item-query {
+  font-size: 16px;
+}

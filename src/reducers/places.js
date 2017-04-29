@@ -12,7 +12,8 @@ export default function reducer(state = [], action) {
       ];
 
     case REMOVE_PLACE:
-      const filteredPlaces = state.filter(item => item.id !== action.payload.id);
+      const removeById = item => item.place.id !== action.payload.id;
+      const filteredPlaces = state.filter(removeById);
       return [...filteredPlaces];
 
     default:

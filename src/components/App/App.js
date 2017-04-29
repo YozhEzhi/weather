@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './App.css';
+import { DEFAULT_PLACE } from '../../api';
 import logo from '../../logo.svg';
 import Footer from '../../components/Footer/Footer';
-import Search from '../../components/Search/Search';
 import PlacesContainer from '../../containers/PlacesContainer';
+import Search from '../../components/Search/Search';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,12 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     if (this.props.places.length) return;
 
-    const success = (position) => {
-      this.updatePlaces(position.coords.latitude, position.coords.longitude);
-    }
-    const error = (err) => this.setState({ err: err.message });
-
-    navigator.geolocation.getCurrentPosition(success, error);
+    this.updatePlaces(DEFAULT_PLACE.lat, DEFAULT_PLACE.lon, DEFAULT_PLACE.placeName);
   }
 
   render() {
@@ -32,7 +28,7 @@ class App extends React.Component {
             <div className="app-logo-wrapper">
               <img src={logo} className="app-logo" alt="logo" />
             </div>
-            <h2 className="app-title">Welcome to React</h2>
+            <h2 className="app-title">React weather micro app</h2>
           </div>
         </div>
 

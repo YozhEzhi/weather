@@ -1,24 +1,29 @@
 import { ADD_PLACE, REMOVE_PLACE } from '../constants';
-import { API_URL, API_KEY } from '../api';
+import buildPlacesUrl from '../api';
 import { updateStorage } from '../utils/storage';
 
-export function getPlace(lat, lon) {
+export function getPlace(lat, lon, placeName) {
   return dispatch => {
-    return fetch(`${API_URL}?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+    return fetch(buildPlacesUrl(lat, lon))
       .then(response => response.json())
       .then((place) => {
         dispatch({
           type: ADD_PLACE,
-          payload: { place },
+          payload: {
+            place: {
+              placeName,
+              place,
+            }
+          },
         });
       })
       .catch(error => console.warn(error));
   };
 }
 
-export function updatePlaces(lat, lon) {
+export function updatePlaces(lat, lon, placeName) {
   return (dispatch, getState) => {
-    return dispatch(getPlace(lat, lon))
+    return dispatch(getPlace(lat, lon, placeName))
       .then(() => updateStorage('places', getState().places));
   }
 }
