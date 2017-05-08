@@ -5,12 +5,12 @@ import thunk from 'redux-thunk';
 import { getStorage } from '../utils/storage';
 import rootReducer from '../reducers';
 
-const storedState = getStorage('places') || [];
+const initialState = getStorage('places') || {};
 
 const configureStore = () => {
   const store = createStore(
     rootReducer,
-    { places: storedState },
+    initialState,
     applyMiddleware(thunk, createLogger()),
   );
 

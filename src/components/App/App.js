@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.places.length) return;
+    if (Object.keys(this.props.places).length) return;
 
     this.updatePlaces(DEFAULT_PLACE.lat, DEFAULT_PLACE.lon, DEFAULT_PLACE.placeName);
   }

@@ -24,13 +24,24 @@
   width: 1px;
 }
 
-.place-inner-item:last-child {
+.place-icon {
   border-color: transparent;
   flex: inherit;
 }
 
 .place-name {
   flex: 2;
+}
+
+.place-update {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  height: 31px;
+  margin: 0;
+  position: relative;
+  width: 31px;
 }
 
 .place-remove {
@@ -68,6 +79,36 @@
   font-size: 30px;
 }
 
+.place-icon-update {
+  animation: rotateRefresh 1s infinite linear;
+  animation-play-state: paused;
+  border-color: #fff #fff #fff transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  height: 31px;
+  position: relative;
+  transform-origin: 50% 50%;
+  transition: background-color 0.3s ease-in-out;
+  width: 31px;
+}
+
+.place-icon-update:hover {
+  animation-play-state: running;
+}
+
+.place-icon-update-arrow {
+  border-color: transparent #fff transparent;
+  border-style: solid;
+  border-width: 5px 10px 5px 0;
+  left: -3px;
+  position: absolute;
+  top: 20px;
+  transform: rotate(25deg);
+}
+
 .place-empty {
   font-style: italic;
   text-align: center;
@@ -94,4 +135,13 @@
   transition: opacity 0.3s;
 }
 
-
+@keyframes rotateRefresh {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

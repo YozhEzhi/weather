@@ -4,22 +4,27 @@ import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Place from '../Place/Place.js';
 
 export default function PlaceList(props) {
-  const places = props.places && props.places.length ?
-    props.places.map(item => {
-      const { place, placeName } = item;
+  let places = [];
+  const isNotEmpty = Object.keys(props.places).length > 0;
 
-      return (
+  if (props.places && isNotEmpty) {
+    for (let key in props.places) {
+      const { place, placeName } = props.places[key];
+
+      places.push((
         <Place
           key={place.id}
           id={place.id}
           place={place}
           placeName={placeName}
           removePlace={() => props.removePlace(place.id)}
+          updatePlace={() => props.updatePlace(place.id)}
         />
-      )
-    })
-    :
-    <h3 className="place-empty">No places to show.</h3>;
+      ));
+    }
+  } else {
+    places = <h3 className="place-empty">No places to show.</h3>;
+  }
 
   return (
     <div>

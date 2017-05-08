@@ -5,7 +5,7 @@ import { updatePlaces } from '../actions';
 import App from '../components/App/App';
 
 function mapStateToProps(state) {
-  return { places: state.places }
+  return { places: state }
 }
 
 function mapDispatchToProps(dispatch) {

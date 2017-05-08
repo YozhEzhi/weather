@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { removePlace } from '../actions';
+import { removePlace, updatePlace } from '../actions';
 import PlaceList from '../components/PlaceList/PlaceList';
 
 function mapStateToProps(state) {
-  return { places: state.places }
+  return { places: state }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ removePlace }, dispatch);
+  return bindActionCreators({ removePlace, updatePlace }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaceList);
