@@ -1,17 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import Place from '../Place/Place.js';
+import Place from '../Place/Place';
 
 export default function PlaceList(props) {
   let places = [];
   const isNotEmpty = Object.keys(props.places).length > 0;
 
   if (props.places && isNotEmpty) {
-    for (let key in props.places) {
+    places = Object.keys(props.places).map((key) => {
       const { place, placeName } = props.places[key];
 
-      places.push((
+      return (
         <Place
           key={place.id}
           id={place.id}
@@ -20,8 +21,8 @@ export default function PlaceList(props) {
           removePlace={() => props.removePlace(place.id)}
           updatePlace={() => props.updatePlace(place.id)}
         />
-      ));
-    }
+      );
+    });
   } else {
     places = <h3 className="place-empty">No places to show.</h3>;
   }
@@ -30,7 +31,7 @@ export default function PlaceList(props) {
     <div>
       <CSSTransitionGroup
         transitionName="fade"
-        transitionAppear={true}
+        transitionAppear
         transitionAppearTimeout={500}
         transitionEnterTimeout={500}
         transitionLeaveTimeout={300}
@@ -40,3 +41,9 @@ export default function PlaceList(props) {
     </div>
   );
 }
+
+PlaceList.propTypes = {
+  places: PropTypes.shape({
+    id: PropTypes.number,
+  }),
+};

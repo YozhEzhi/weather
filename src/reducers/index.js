@@ -7,7 +7,7 @@ import {
 } from '../constants';
 
 export default function reducer(state = {}, action) {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_PLACE:
       return {
         ...state,

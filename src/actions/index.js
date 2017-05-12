@@ -1,6 +1,6 @@
 import { pickBy, isEqual } from 'lodash';
 
-import { ADD_PLACE, REMOVE_PLACE, UPDATE_PLACE} from '../constants';
+import { ADD_PLACE, REMOVE_PLACE, UPDATE_PLACE } from '../constants';
 import buildPlacesUrl from '../api';
 import { updateStorage } from '../utils/storage';
 
@@ -26,25 +26,24 @@ export function updatePlaces(lat, lon, placeName) {
   return (dispatch, getState) => {
     return dispatch(getPlace(lat, lon, placeName))
       .then(() => updateStorage('places', getState()));
-  }
+  };
 }
 
 export function removePlaceById(id) {
   return (dispatch) => {
-    const p = Promise.resolve();
-    return p.then(() => dispatch({
-        type: REMOVE_PLACE,
-        id,
-      }))
-      .catch(error => console.warn(error));
-  }
+    return Promise.resolve().then(() => dispatch({
+      type: REMOVE_PLACE,
+      id,
+    }))
+    .catch(error => console.warn(error));
+  };
 }
 
 export function removePlace(id) {
   return (dispatch, getState) => {
     return dispatch(removePlaceById(id))
       .then(() => updateStorage('places', getState()));
-  }
+  };
 }
 
 export function updatePlaceById(id, places) {
@@ -72,5 +71,5 @@ export function updatePlace(id) {
 
     return dispatch(updatePlaceById(id, state))
       .then(() => updateStorage('places', state));
-  }
+  };
 }

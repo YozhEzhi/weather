@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './App.css';
 import { DEFAULT_PLACE } from '../../api';
@@ -42,5 +43,13 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  places: PropTypes.shape({
+    id: PropTypes.number,
+    place: PropTypes.object,
+  }),
+  updatePlaces: PropTypes.func.isRequired,
+};
 
 export default App;

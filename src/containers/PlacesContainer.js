@@ -5,7 +5,7 @@ import { removePlace, updatePlace } from '../actions';
 import PlaceList from '../components/PlaceList/PlaceList';
 
 function mapStateToProps(state) {
-  return { places: state }
+  return { places: state };
 }
 
 function mapDispatchToProps(dispatch) {
