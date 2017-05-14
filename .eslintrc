@@ -1,10 +1,16 @@
 {
   "extends": "airbnb",
   "globals": {
+    "beforeAll": true,
+    "describe": true,
     "document": true,
+    "expect": true,
     "fetch": true,
+    "fit": true,
     "google": true,
     "localStorage": true,
+    "it": true,
+    "xit": true,
     "window": true
   },
   "rules": {
